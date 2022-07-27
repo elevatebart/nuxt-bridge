@@ -64,5 +64,12 @@ export default defineNuxtConfig({
         // hardSource: process.env.NODE_ENV !== 'production',
         // parallel: process.env.NODE_ENV !== 'production',
         // cache: process.env.NODE_ENV !== 'production',
+        extend(config: any) {
+            config.module.rules.push({
+                test: /\.mjs$/,
+                include: /node_modules/,
+                type: 'javascript/auto',
+            })
+        },
     },
 })
