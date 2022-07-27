@@ -1,4 +1,4 @@
-const { getWebpackConfig } = require('@nuxt/bridge')
+const { getWebpackConfig } = require('nuxt-edge')
 
 const FILTERED_PLUGINS = [
     'WebpackBarPlugin',
