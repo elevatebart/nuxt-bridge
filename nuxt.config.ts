@@ -4,18 +4,30 @@ export default defineNuxtConfig({
     srcDir: 'client/',
     ssr: process.env.SSR === 'true',
     dev: process.env.NODE_ENV !== 'production',
+    bridge: {
+        nitro: false,
+        autoImports: true,
+    },
     alias: {
         tslib: 'tslib/tslib.es6.js',
         '~/*': 'client/*',
         '@/*': 'client/*',
         fflate: 'fflate/esm/browser.js',
     },
-
+    typescript: {
+        strict: true,
+        tsConfig: {
+            compilerOptions: {
+                lib: ['ESNext', 'ESNext.AsyncIterable', 'DOM', 'webworker'],
+                types: ['@pinia/nuxt'],
+            },
+        },
+    },
     privateRuntimeConfig: {},
 
     plugins: ['~/plugins/apolloComposable.ts'],
-
-    buildModules: ['@nuxtjs/vuetify'],
+    components: true,
+    buildModules: ['@nuxtjs/vuetify', ['@pinia/nuxt', { disableVuex: false }]],
     modules: ['@nuxtjs/apollo'],
 
     apollo: {

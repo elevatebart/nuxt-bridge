@@ -1,6 +1,7 @@
 <template>
     <v-container>
         <h1>INDEX</h1>
+        <Test />
         <v-card class="mx-auto" max-width="344">
             <v-card-text>
                 <div>Example Vuetify Card</div>
@@ -32,16 +33,6 @@
                 </v-card>
             </v-expand-transition>
         </v-card>
-        <v-btn
-            class="justify-center mt-16"
-            x-large
-            dark
-            outlined
-            color="green"
-            @click="$router.push('/composition')"
-        >
-            Go to page with script setup tag
-        </v-btn>
     </v-container>
 </template>
 

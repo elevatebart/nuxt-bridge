@@ -1,0 +1,37 @@
+/* stylelint-disable */
+.header {
+    color: white;
+    font-weight: bold;
+    border: 10px #2d3748;
+    background: #919191;
+    padding: 10px 20px;
+    border-radius: 0 70px 70px 0;
+    margin-bottom: 15px;
+    width: max-content;
+    text-align: center;
+}
+
+#app > .v-application--wrap {
+    min-height: 10vh;
+}
+
+.rsg--root-72 {
+    margin: auto !important;
+    max-width: 1000px !important;
+}
+
+.rsg--root-72 .rsg--para-70 {
+    color: #156dc5 !important;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.rsg--root-72 .rsg--text-79 {
+    color: #156dc5 !important;
+    font-size: medium;
+    font-weight: normal;
+}
+
+.rsg--content-3 {
+    max-width: 1200px !important;
+}
