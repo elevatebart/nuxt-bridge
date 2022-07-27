@@ -54,6 +54,7 @@
         "stylelint-config-standard-scss": "^3.0.0",
         "ts-loader": "^8.4.0",
         "typescript": "^4.6.3",
+        "vue-styleguidist": "^4.48.0",
         "vue-template-babel-compiler": "^1.2.0"
     },
     "lint-staged": {
