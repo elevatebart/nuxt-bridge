@@ -1,4 +1,5 @@
 const { getWebpackConfig } = require('nuxt-edge')
+const { defineConfig } = require('vue-styleguidist')
 
 const FILTERED_PLUGINS = [
     'WebpackBarPlugin',
@@ -33,7 +34,7 @@ module.exports = async () => {
         ],
     }
 
-    return {
+    return defineConfig({
         webpackConfig,
-    }
+    })
 }
