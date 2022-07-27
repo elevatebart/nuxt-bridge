@@ -18,6 +18,7 @@ module.exports = async () => {
     const nuxtWebpackConfig = await getWebpackConfig('client', {
         for: 'dev',
     })
+
     const skip = ['div', 'span', 'strong', 'p', 'th', 'tr', 'td', 'tbody', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
     const webpackConfig = {
         devtool: 'source-map',
@@ -27,9 +28,25 @@ module.exports = async () => {
                     // remove the eslint-loader
                     (a) => a.loader !== 'eslint-loader',
                 ),
+                // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+                {
+                    test: /\.tsx?$/,
+                    use: {
+                        loader: 'ts-loader',
+                        options: {
+                            transpileOnly: true,
+                            compilerOptions: {
+                                noEmit: false,
+                            },
+                        },
+                    },
+                },
             ],
         },
-        resolve: { ...nuxtWebpackConfig.resolve },
+        resolve: {
+            ...nuxtWebpackConfig.resolve,
+            extensions: [...nuxtWebpackConfig.resolve.extensions, '.ts'],
+        },
         plugins: [
             ...nuxtWebpackConfig.plugins.filter((p) => !FILTERED_PLUGINS.includes(p.constructor.name)),
             new VuetifyLoaderPlugin({
